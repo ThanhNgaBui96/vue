@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: 'Base Project'
+  version: 0.0.1
+paths:
+  /api/getUser:
+    get:
+      description: 'Get user infor'
+      operationId: 'App\Http\Controllers\UserController::getUser'
+      parameters:
+        -
+          name: role
+          in: query
+          description: 'User role'
+          required: false
+          schema:
+            type: integer
+            default: '1'
+            maximum: '2'
+      responses:
+        default:
+          description: 'Welcome page'
+  /:
+    get:
+      description: 'Home page'
+      parameters:
+        -
+          name: limit
+          in: query
+          description: 'How many items to return at one time (max 100)'
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        default:
+          description: 'Welcome page'
